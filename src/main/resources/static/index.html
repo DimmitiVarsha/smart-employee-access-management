@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Employee Access Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div>
+        <h1>Smart Employee Access Management</h1>
+        <p>Employee Management Dashboard</p>
+		<p class="project-description">
+		            Manage employee information, departments, employee status
+		            and access-related operations through a centralized management dashboard.
+		</p>
+    </div>
+</header>
+
+<main>
+
+    <!-- Dashboard Cards -->
+    <section class="cards">
+        <div class="card">
+            <h3>Total Employees</h3>
+            <p id="totalEmployees">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Active Employees</h3>
+            <p id="activeEmployees">0</p>
+        </div>
+
+        <div class="card">
+            <h3>On Leave</h3>
+            <p id="leaveEmployees">0</p>
+        </div>
+    </section>
+
+    <!-- Employee Management -->
+    <section class="employee-section">
+
+        <div class="toolbar">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search employee..."
+                onkeyup="searchEmployees()"
+            >
+
+            <select id="departmentFilter" onchange="filterEmployees()">
+                <option value="">All Departments</option>
+            </select>
+
+            <button onclick="openAddForm()">+ Add Employee</button>
+        </div>
+
+        <!-- Employee Form -->
+        <div id="employeeForm" class="form-container">
+
+            <h2 id="formTitle">Add Employee</h2>
+
+            <input type="hidden" id="employeeId">
+
+            <div class="form-grid">
+
+                <input type="text" id="employeeName"
+                       placeholder="Employee Name">
+
+                <input type="email" id="email"
+                       placeholder="Email">
+
+                <input type="text" id="phone"
+                       placeholder="Phone">
+
+                <input type="text" id="designation"
+                       placeholder="Designation">
+
+                <input type="number" id="salary"
+                       placeholder="Salary">
+
+                <select id="status">
+                    <option value="ACTIVE">ACTIVE</option>
+                    <option value="ON_LEAVE">ON_LEAVE</option>
+                </select>
+
+                <select id="department">
+                    <option value="">Select Department</option>
+                </select>
+
+            </div>
+
+            <div class="form-buttons">
+                <button onclick="saveEmployee()">Save</button>
+                <button class="cancel" onclick="closeForm()">Cancel</button>
+            </div>
+
+        </div>
+
+        <!-- Employee Table -->
+        <div class="table-container">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Designation</th>
+                        <th>Salary</th>
+                        <th>Department</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody id="employeeTable">
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
+<footer>
+    <p>Smart Employee Access Management</p>
+    <p>© 2026 | Spring Boot • MySQL • HTML • CSS • JavaScript</p>
+</footer>
+<script src="script.js"></script>
+
+</body>
+</html>
